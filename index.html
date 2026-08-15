@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spider-Man: Um Novo Dia - Marvel</title>
+  <meta name="description"
+    content="É um NOVO DIA para Peter Parker. Agora, ele combate o crime em tempo integral como Homem-Aranha em um mundo que não se lembra dele.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <svg class="svgShape" width="0" height="0" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <clipPath id="meu-clip-path" clipPathUnits="objectBoundingBox">
+        <path
+          d="M0.812 0.0458C0.812 0.071 0.8232 0.0915 0.837 0.0915H0.9499C0.9776 0.0915 1 0.1325 1 0.1831V0.9085C1 0.959 0.9776 1 0.9499 1H0.181C0.1611 1 0.1449 0.9705 0.1449 0.934C0.1449 0.8976 0.1288 0.8681 0.1088 0.8681H0.0501C0.0224 0.8681 0 0.8271 0 0.7766V0.1555C0 0.105 0.0224 0.064 0.0501 0.064H0.0983C0.108 0.064 0.1158 0.0497 0.1158 0.032C0.1158 0.0143 0.1237 0 0.1334 0H0.7869C0.8007 0 0.812 0.0205 0.812 0.0458Z" />
+      </clipPath>
+    </defs>
+  </svg>
+
+  <img class="bgFundo" src="assets/bg.webp" alt="">
+
+  <!-- ScrollSmoother Container -->
+  <div id="smooth-wrapper">
+    <div id="smooth-content">
+
+      <main class="hero-container">
+        <!-- Header Navigation -->
+        <header class="header">
+          <div class="logo-group">
+            <img src="assets/logotipo-aranha.svg" alt="Spider-Man Logo" class="logo-aranha">
+            <span class="logo-divider"></span>
+            <img src="assets/logotipo-marvel.svg" alt="Marvel Logo" class="logo-marvel">
+          </div>
+          <nav class="header-nav">
+            <a href="#trailer" class="nav-link">TRAILER</a>
+            <a href="#ingressos" class="btn-tickets">COMPRAR INGRESSOS</a>
+          </nav>
+        </header>
+
+        <!-- Main Content Banner -->
+        <section class="banner-section">
+          <div class="content-card stage">
+            <canvas id="frame-canvas"></canvas>
+
+            <div class="card-left">
+              <img src="assets/titulo-spider-man.svg" alt="Spider-Man: Um Novo Dia" class="title-img">
+            </div>
+            <div class="card-right">
+              <div class="description-wrapper">
+                <p class="description">
+                  É um <strong>NOVO DIA</strong> para Peter Parker.<br>
+                  Agora, ele combate o crime em tempo<br>
+                  integral como Homem-Aranha em um<br>
+                  mundo que não se lembra dele.
+                </p>
+                <p class="description text-2">
+                  Mas a pressão de ver seus antigos amigos seguirem em frente sem ele começa a desencadear uma mudança
+                  em Peter, uma transformação que ele talvez não consiga controlar.
+                </p>
+                <p class="description text-3">
+                  Só que essa mudança pode ser justamente a única coisa capaz de deter uma nova e chocante ameaça à
+                  cidade
+                  e às pessoas que ele ama: um vilão poderoso que ninguém consegue ver.
+                </p>
+              </div>
+            </div>
+
+            <!-- Video Mask Reveal Container -->
+            <div class="video-mask-container">
+              <div class="video-inner">
+                <video id="trailer-video" class="hero-video" src="assets/trailer.mp4" autoplay loop muted playsinline
+                  preload="auto"></video>
+                <div class="video-overlay">
+                  <button id="btn-play-trigger" class="btn-play-trigger" aria-label="Assistir Trailer">
+                    <div class="play-icon-circle">
+                      <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                      </svg>
+                    </div>
+                    <span class="play-btn-text">ASSISTIR TRAILER</span>
+                  </button>
+                </div>
+
+                <!-- Custom Video Player Controls -->
+                <div id="custom-player-controls" class="custom-player-controls">
+                  <button id="ctrl-play-pause" class="ctrl-btn" aria-label="Play/Pause">
+                    <svg id="icon-pause" class="icon-svg" viewBox="0 0 24 24" fill="currentColor">
+                      <rect x="6" y="4" width="4" height="16" />
+                      <rect x="14" y="4" width="4" height="16" />
+                    </svg>
+                    <svg id="icon-play" class="icon-svg hidden" viewBox="0 0 24 24" fill="currentColor">
+                      <polygon points="5 3 19 12 5 21 5 3" />
+                    </svg>
+                  </button>
+
+                  <div id="progress-container" class="progress-container">
+                    <div id="progress-bar" class="progress-bar"></div>
+                  </div>
+
+                  <span id="time-display" class="time-display">00:00 / 00:00</span>
+
+                  <button id="ctrl-mute" class="ctrl-btn" aria-label="Mute/Unmute">
+                    <svg id="icon-volume-high" class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M11 5L6 9H2v6h4l5 4V5z" />
+                      <path d="M15.54 8.46a5 5 0 010 7.07" />
+                      <path d="M19.07 4.93a10 10 0 010 14.14" />
+                    </svg>
+                    <svg id="icon-volume-mute" class="icon-svg hidden" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M11 5L6 9H2v6h4l5 4V5z" />
+                      <line x1="23" y1="9" x2="17" y2="15" />
+                      <line x1="17" y1="9" x2="23" y2="15" />
+                    </svg>
+                  </button>
+
+                  <button id="ctrl-fullscreen" class="ctrl-btn" aria-label="Tela Cheia">
+                    <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path
+                        d="M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3m0 18h3a2 2 0 002-2v-3M3 16v3a2 2 0 002 2h3" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Footer Elements -->
+        <footer class="footer-bar">
+          <div class="release-info">
+            <span class="release-label">LANÇAMENTO</span>
+            <h2 class="release-date">29/07</h2>
+          </div>
+
+          <div class="scroll-indicator" title="Role a página">
+            <img src="assets/texto-circular.svg" alt="Role a página" class="circular-text">
+            <img src="assets/mao-homem-aranha.svg" alt="Mão Homem-Aranha" class="spider-hand">
+          </div>
+        </footer>
+      </main>
+
+      <!-- Cast Section (Elenco) -->
+      <section class="cast-section" id="elenco">
+        <div class="cast-container">
+          <!-- Left Column: Info & Picker -->
+          <div class="cast__left">
+            <div class="cast__header">
+              <h2 class="cast__title">ELENCO </h2>
+            </div>
+
+            <!-- Person Details (Name & Role Subtitle) -->
+            <div class="cast__person">
+              <div class="person-info active" data-index="0">
+                <h3 class="person-name">Tom Holland</h3>
+                <p class="person-role">Peter Parker / Homem-Aranha</p>
+              </div>
+              <div class="person-info" data-index="1">
+                <h3 class="person-name">Zendaya</h3>
+                <p class="person-role">Michelle "MJ" Jones</p>
+              </div>
+              <div class="person-info" data-index="2">
+                <h3 class="person-name">Jacob Batalon</h3>
+                <p class="person-role">Ned Leeds</p>
+              </div>
+              <div class="person-info" data-index="3">
+                <h3 class="person-name">Mark Ruffalo</h3>
+                <p class="person-role">Bruce Banner / Hulk</p>
+              </div>
+              <div class="person-info" data-index="4">
+                <h3 class="person-name">Michael Mando</h3>
+                <p class="person-role">Escorpião</p>
+              </div>
+            </div>
+
+            <!-- Spider Indicator & Progress Picker -->
+            <div class="cast__picker">
+              <div class="picker-track-wrapper">
+                <div class="picker-line-bg"></div>
+                <div class="picker-line-fill" id="cast-line-fill"></div>
+                <div class="spider-indicator" id="spider-indicator">
+                  <img src="assets/indicador-elenco.svg" alt="Spider Indicator">
+                </div>
+              </div>
+              <ul class="picker-list">
+                <li class="picker-item active" data-index="0"><span class="picker-num">01</span> Tom Holland</li>
+                <li class="picker-item" data-index="1"><span class="picker-num">02</span> Zendaya</li>
+                <li class="picker-item" data-index="2"><span class="picker-num">03</span> Jacob Batalon</li>
+                <li class="picker-item" data-index="3"><span class="picker-num">04</span> Benedict Cumberbatch</li>
+                <li class="picker-item" data-index="4"><span class="picker-num">05</span> Willem Dafoe</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Right Column: Masked Image Reveal Stage -->
+          <div class="cast__right">
+            <div class="cast__image-stage">
+              <!-- Slide 0 (Base image) -->
+              <div class="cast-img-wrapper slide-0">
+                <img src="assets/Elenco/img1_1_1x.webp" alt="Tom Holland" class="cast-img">
+              </div>
+              <!-- Slide 1 (Mask revealed top to bottom) -->
+              <div class="cast-img-wrapper slide-1">
+                <img src="assets/Elenco/img2_1_1x.webp" alt="Zendaya" class="cast-img">
+              </div>
+              <!-- Slide 2 -->
+              <div class="cast-img-wrapper slide-2">
+                <img src="assets/Elenco/img3_1_1x.webp" alt="Jacob Batalon" class="cast-img">
+              </div>
+              <!-- Slide 3 -->
+              <div class="cast-img-wrapper slide-3">
+                <img src="assets/Elenco/img4_1_1x.webp" alt="Benedict Cumberbatch" class="cast-img">
+              </div>
+              <!-- Slide 4 -->
+              <div class="cast-img-wrapper slide-4">
+                <img src="assets/Elenco/img5_1_1x.webp" alt="Willem Dafoe" class="cast-img">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- GSAP Core & Plugins -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap-trial@3.12.5/dist/ScrollSmoother.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap-trial@3.12.5/dist/SplitText.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
