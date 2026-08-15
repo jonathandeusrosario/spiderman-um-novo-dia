@@ -1,6 +1,6 @@
-# 🕷️ Spider-Man: Um Novo Dia
+# 🕷️ Homem-Aranha: Um Novo Dia
 
-Landing page inspirada no filme **Spider-Man: Um Novo Dia**, desenvolvida como meu primeiro projeto web.
+Landing page inspirada no filme **Homem-Aranha: Um Novo Dia**, desenvolvida como meu primeiro projeto web.
 
 Este projeto foi criado com o objetivo de colocar em prática meus primeiros conhecimentos de **HTML, CSS e JavaScript**, explorando também animações, efeitos visuais, manipulação do DOM e integração com bibliotecas externas.
 
@@ -13,7 +13,7 @@ https://jonathandeusrosario.github.io/spiderman-um-novo-dia/
 
 ## 📸 Sobre o projeto
 
-A proposta foi criar uma experiência visual inspirada nos sites promocionais de filmes da Marvel, utilizando uma interface moderna e animações para apresentar o universo de Spider-Man.
+A proposta foi criar uma experiência visual inspirada nos sites promocionais de filmes da Marvel, utilizando uma interface moderna e animações para apresentar o universo do Homem-Aranha.
 
 O projeto possui:
 
